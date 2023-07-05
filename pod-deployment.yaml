@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-love-deployment
+  labels:
+    env: dev
+    app: web-love-deployment
+spec:
+  template:
+    metadata:
+      name: web-love-deployment
+      labels:
+        env: dev
+        app: web-love-deployment
+    spec:
+      containers:
+      - name: web-love-container
+        image: lebao268/test-js-web
+  replicas: 2
+  selector:
+    matchLabels:
+      env: dev
+      app: web-love-deployment
