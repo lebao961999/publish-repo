@@ -1,0 +1,22 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      app: web-love-deployment
+      app.kubernetes.io/instance: test-wep-app
+      env: dev
+    name: web-love-deployment
+    namespace: test
+  spec:
+    ports:
+    - nodePort: 30147
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      app: web-love-deployment
+      env: dev
+    sessionAffinity: None
+    type: NodePort
